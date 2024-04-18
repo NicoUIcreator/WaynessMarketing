@@ -2,7 +2,6 @@
 
 ## Aplicación de Medición de Ejercicio y Recompensas
 
-![Logo de la aplicación](img/favicon.png)
 
 >Descripción:
 
