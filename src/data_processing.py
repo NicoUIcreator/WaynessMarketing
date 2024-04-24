@@ -41,4 +41,5 @@ def categorize_activity(heart_rate):
 df['activity_category'] = df['Heart_Rate'].apply(categorize_activity)
 
 
-df.to_csv("dataLimpio/dfPuntos.csv")
+df.to_csv("../dataLimpio/dfPuntos.csv")
+
