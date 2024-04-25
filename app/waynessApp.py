@@ -19,6 +19,9 @@ if seleccion == "Home":
 
     with st.expander("¿Qué es esta aplicación?"):
         st.write("Somos una nueva empresa Start-up cuyo objetivo es crear la motivación para lograr el equilibrio adecuado entre el deber y el placer, la responsabilidad y los hobbies, mejorando así la calidad de vida de las personas. Muy convencidos de que el correcto equilibrio entre la salud física, mental y emocional, es fundamental para que las personas sean más felices y productivas, pensamos en crear una App que, gracias a un sistema de puntos y a los incentivos adecuados, nos diera la oportunidad de animar a los usuarios a realizar cualquier tipo de actividad fisica")
+        video_file = open("../video/waynessApp.mp4", "rb")  # Replace with your video filename
+        video_bytes = video_file.read()
+        st.video(video_bytes)
 
     img = Image.open("../img/favicon.png")
     st.image(img)
@@ -85,20 +88,23 @@ elif seleccion == "Predicciones":
         st.write(df)
 
         dfPuntos = pd.read_csv("../dataLimpio/dfPuntos.csv",index_col=0)
+        puntos = df["wep"][0]
 
         X=dfPuntos[['Age', 'Height', 'Weight', 'Duration', 'Heart_Rate','female', 'male', 'wep', 'activity_category']]
         scaler = StandardScaler()
         XScal = scaler.fit_transform(X)
 
         if st.button('RUN'):
+
             if model == 'GradientBoostingRegressor':
                     resultado = (np.expm1(gbr_reg.predict(scaler.transform(df)))).round(2)
-                    st.success(f"Vas a quemar {resultado} Calorias!")
+                    st.success(f"Vas a quemar {resultado} Calorias y vas a sumar {puntos} puntos!!",icon="🔥")
                     img3 = Image.open("../img/gym.jpg")
                     st.image(img3)
+
             elif model == 'XGB Model':
                     resultado = (np.expm1(xgb_m.predict(scaler.transform(df)))).round(2)
-                    st.success(f"Vas a quemar {resultado} Calorias!")
+                    st.success(f"Vas a quemar {resultado} Calorias y vas a sumar {puntos} puntos!",icon="🔥")
                     img4 = Image.open("../img/corriendo.jpg")
                     st.image(img4)
                  
