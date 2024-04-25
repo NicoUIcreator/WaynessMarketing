@@ -6,8 +6,7 @@ from PIL import Image
 from sklearn.preprocessing import StandardScaler
 import numpy as np
 import funciones as f
-import tensorflow 
-import keras
+
 
 
 st.set_page_config(page_title="Wayness Points",
