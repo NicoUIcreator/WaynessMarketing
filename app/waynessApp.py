@@ -19,9 +19,11 @@ if seleccion == "Home":
 
     with st.expander("¿Qué es esta aplicación?"):
         st.write("Somos una nueva empresa Start-up cuyo objetivo es crear la motivación para lograr el equilibrio adecuado entre el deber y el placer, la responsabilidad y los hobbies, mejorando así la calidad de vida de las personas. Muy convencidos de que el correcto equilibrio entre la salud física, mental y emocional, es fundamental para que las personas sean más felices y productivas, pensamos en crear una App que, gracias a un sistema de puntos y a los incentivos adecuados, nos diera la oportunidad de animar a los usuarios a realizar cualquier tipo de actividad fisica")
-        video_file = open("../video/waynessApp.mp4", "rb")  # Replace with your video filename
-        video_bytes = video_file.read()
-        st.video(video_bytes)
+        if st.button('Cargar Demo'):
+    
+            video_file = open("../video/waynessApp.mp4", "rb")  # Replace with your video filename
+            video_bytes = video_file.read()
+            st.video(video_bytes)
 
     img = Image.open("../img/favicon.png")
     st.image(img)
